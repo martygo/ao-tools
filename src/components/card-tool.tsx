@@ -8,19 +8,19 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 
-interface CardToolsProps {
+interface CardToolProps {
 	title: string;
 	description: string;
 	link: string;
 	status: "pending" | "completed" | "in-progress";
 }
 
-export const CardTools = ({
+export const CardTool = ({
 	title,
 	description,
 	link,
 	status,
-}: CardToolsProps) => {
+}: CardToolProps) => {
 	const statusColor = {
 		pending: "destructive",
 		"in-progress": "secondary",
