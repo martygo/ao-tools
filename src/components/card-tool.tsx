@@ -30,8 +30,11 @@ export const CardTool = ({
 	} as Record<typeof status, BadgeProps["variant"]>;
 
 	return (
-		<Link href={link}>
-			<Card className="h-[10rem] min-h-auto">
+		<Link href={link} className="">
+			<Card
+				className="h-[10rem] min-h-auto hover:border-stone-500 
+				transition-colors duration-300 ease-in-out"
+			>
 				<CardHeader>
 					<CardTitle>{title}</CardTitle>
 				</CardHeader>
