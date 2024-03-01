@@ -1,3 +1,3 @@
 export default function Passport() {
-	return <div>validar passaporte</div>;
+	return <section>validar passaporte</section>;
 }

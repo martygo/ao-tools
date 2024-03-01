@@ -7,7 +7,7 @@ import Loading from "./loading";
 
 export default function Home() {
 	return (
-		<main className="h-screen px-2 sm:p-4 lg:p-6">
+		<section>
 			<Typography className="text-2xl font-bold mb-4">
 				Todas ferramentas
 			</Typography>
@@ -15,6 +15,6 @@ export default function Home() {
 			<Suspense fallback={<Loading />}>
 				<ToolList />
 			</Suspense>
-		</main>
+		</section>
 	);
 }
