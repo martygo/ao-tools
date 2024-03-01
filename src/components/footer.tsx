@@ -6,7 +6,7 @@ export function Footer() {
 	const links = [
 		{
 			name: "GitHub",
-			url: "",
+			url: "https://github.com/martygo/ao-tools",
 			icon: <GitFork size={20} />,
 		},
 		{

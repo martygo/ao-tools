@@ -1,5 +1,5 @@
 export const seo = {
-	title: "Angola Tools 🇦🇴",
+	title: "Angola Tools 🇦🇴 - AO Tools",
 	description:
-		"Collection of handy online tools for developers, with great UX. AO Tools is a free and open-source collection of handy online tools for developers & people working in IT, especially in Angola.",
+		"AO Tools é uma coleção gratuita e de código aberto de ferramentas on-line úteis para desenvolvedores e pessoas que trabalham em TI, especialmente em Angola.",
 };
