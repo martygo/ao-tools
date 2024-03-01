@@ -5,7 +5,7 @@ import { FilterTools } from "./filter-tools";
 
 export function ToolList() {
 	return (
-		<div>
+		<>
 			<FilterTools />
 
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 z-20">
@@ -21,6 +21,6 @@ export function ToolList() {
 					);
 				})}
 			</div>
-		</div>
+		</>
 	);
 }
