@@ -18,7 +18,7 @@ export const data: DataProps[] = [
 		description:
 			"Validar o número de telefone se é de Angola e a qual operadora pertence.",
 		category: category.validador,
-		link: "/telefone",
+		link: "/validador/telefone",
 		status: "pending",
 	},
 	{
@@ -26,7 +26,7 @@ export const data: DataProps[] = [
 		description:
 			"Validar o número de passaporte se é válido e é angolano.",
 		category: category.validador,
-		link: "/passaporte",
+		link: "/validador/passaporte",
 		status: "pending",
 	},
 	{
@@ -34,7 +34,7 @@ export const data: DataProps[] = [
 		description:
 			"Validar o número de bilhete de identidade nacional.",
 		category: category.validador,
-		link: "/bi",
+		link: "/validador/bi",
 		status: "pending",
 	},
 	{
@@ -42,7 +42,7 @@ export const data: DataProps[] = [
 		description:
 			"Ver o valor das taxas de juros do Banco Nacional de Angola.",
 		category: category.taxas,
-		link: "/juros-bna",
+		link: "/taxas/juros-bna",
 		status: "pending",
 	},
 	{
@@ -50,7 +50,7 @@ export const data: DataProps[] = [
 		description:
 			"Ver o valor das taxas de câmbio do Banco Nacional de Angola.",
 		category: category.taxas,
-		link: "/cambio-bna",
+		link: "/taxas/cambio-bna",
 		status: "pending",
 	},
 	{
@@ -58,14 +58,14 @@ export const data: DataProps[] = [
 		description:
 			"Ver o valor das taxas de inflação do Banco Nacional de Angola.",
 		category: category.taxas,
-		link: "/inflacao-bna",
+		link: "/taxas/inflacao-bna",
 		status: "pending",
 	},
 	{
 		title: "Taxas de juro de Luibor 🏦",
 		description: "Ver o valor das taxas de juros do Luibor.",
 		category: category.taxas,
-		link: "/juros-luibor",
+		link: "/taxas/juros-luibor",
 		status: "pending",
 	},
 	{
@@ -73,7 +73,7 @@ export const data: DataProps[] = [
 		description:
 			"Ver o valor das taxas de variação de câmbio do Banco Nacional de Angola.",
 		category: category.taxas,
-		link: "/variacao-cambio-bna",
+		link: "/taxas/variacao-cambio-bna",
 		status: "pending",
 	},
 	{
@@ -81,14 +81,14 @@ export const data: DataProps[] = [
 		description:
 			"Ver o valor das taxas de juros dos bancos comerciais de Angola.",
 		category: category.taxas,
-		link: "/juros-bancos",
+		link: "/taxas/juros-bancos",
 		status: "pending",
 	},
 	{
 		title: "Províncias de Angola 🇦🇴",
 		description: "Ver a lista de províncias de Angola.",
 		category: category.geografia,
-		link: "/provincias",
+		link: "/geografia/provincias",
 		status: "pending",
 	},
 	{
@@ -96,7 +96,7 @@ export const data: DataProps[] = [
 		description:
 			"Ver a lista de munícipios das províncias de Angola.",
 		category: category.geografia,
-		link: "/municipios",
+		link: "/geografia/municipios",
 		status: "pending",
 	},
 ];
