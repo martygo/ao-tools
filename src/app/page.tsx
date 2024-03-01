@@ -1,5 +1,9 @@
+import { Suspense } from "react";
+
 import { ToolList } from "@/components/tool-list";
 import { Typography } from "@/components/ui/typography";
+
+import Loading from "./loading";
 
 export default function Home() {
 	return (
@@ -8,7 +12,9 @@ export default function Home() {
 				Todas ferramentas
 			</Typography>
 
-			<ToolList />
+			<Suspense fallback={<Loading />}>
+				<ToolList />
+			</Suspense>
 		</main>
 	);
 }
