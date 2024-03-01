@@ -11,6 +11,7 @@ import {
 interface CardToolProps {
 	title: string;
 	description: string;
+	category?: string;
 	link: string;
 	status: "pending" | "completed" | "in-progress";
 }
@@ -18,6 +19,7 @@ interface CardToolProps {
 export const CardTool = ({
 	title,
 	description,
+	category,
 	link,
 	status,
 }: CardToolProps) => {
@@ -34,9 +36,17 @@ export const CardTool = ({
 					<CardTitle>{title}</CardTitle>
 				</CardHeader>
 				<CardContent>
-					<Badge className="mb-2" variant={statusColor[status]}>
-						{status}
-					</Badge>
+					<div className="flex gap-x-2">
+						<Badge className="mb-2" variant={statusColor[status]}>
+							{status}
+						</Badge>
+
+						{category && (
+							<Badge className="mb-2" variant="default">
+								{category}
+							</Badge>
+						)}
+					</div>
 					<p>{description}</p>
 				</CardContent>
 			</Card>
