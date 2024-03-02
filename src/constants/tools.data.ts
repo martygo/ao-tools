@@ -19,7 +19,7 @@ export const data: DataProps[] = [
 			"Validar o número de telefone se é de Angola e a qual operadora pertence.",
 		category: category.validador,
 		link: "/validador/telefone",
-		status: "pending",
+		status: "completed",
 	},
 	{
 		title: "Validar passaporte 🛂",
