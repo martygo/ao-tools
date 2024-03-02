@@ -30,8 +30,8 @@ export default function RootLayout({
 					<AppBar />
 					<main className="min-h-screen px-2 sm:px-4 lg:px-6">
 						<div className="py-6">{children}</div>
-						<Footer />
 					</main>
+					<Footer />
 				</ThemeProvider>
 			</body>
 		</html>
