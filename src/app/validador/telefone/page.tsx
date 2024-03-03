@@ -22,19 +22,17 @@ import { PhoneValidator } from "./phone-validator";
 
 type Result = {
 	phoneNumber: string;
-	isFromAngola: boolean;
-	countryCode: string;
+	// isFromAngola: boolean;
+	// countryCode: string;
 };
+
 
 const formSchema = z.object({
 	phone: z
 		.string()
-		.min(9, {
-			message: "O número de telefone deve ter pelo menos 9 dígitos",
-		})
-		.max(13, {
-			message: "O número de telefone deve ter no máximo 13 dígitos",
-		}),
+		.refine((value) => new PhoneValidator().isPhone(value), {
+			message: 'Número de telefone inválido'
+		})		
 });
 
 export default function Phone() {
@@ -48,15 +46,11 @@ export default function Phone() {
 	});
 
 	function onSubmit(values: z.infer<typeof formSchema>) {
-		const phoneNumber = new PhoneValidator().isPhone(values.phone);
-
-		if (phoneNumber) {
-			setResult({
-				phoneNumber: phoneNumber.nationalNumber,
-				isFromAngola: phoneNumber.country === "AO",
-				countryCode: phoneNumber.countryCallingCode,
-			});
-		}
+		setResult({
+			phoneNumber: values.phone,
+			// isFromAngola: phoneNumber.country === "AO",
+			// countryCode: phoneNumber.countryCallingCode,
+		});
 
 		form.reset();
 	}
@@ -113,11 +107,11 @@ export default function Phone() {
 						<div className="flex justify-between items-center">
 							<span>
 								Número é de Angola?:{" "}
-								{result?.isFromAngola ? "Sim" : "Nāo"}.
+								{/* {result?.isFromAngola ? "Sim" : "Nāo"}. */}
 							</span>
 						</div>
 						<div className="flex justify-between items-center">
-							<span>Código de chamada: {result?.countryCode}.</span>
+							<span>Código de chamada: .</span>
 						</div>
 						<div className="flex justify-between items-center">
 							<span>Operadora: Indisponível.</span>
