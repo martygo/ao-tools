@@ -8,12 +8,12 @@
 
 
 <p align="center">
-  <a href="#key-features">Backlog</a> •
+  <a href="#key-features">Request Feature</a> •
   <a href="#related">Related</a> •
   <a href="#license">License</a>
 </p>
 
-## Backlog
+## Feature Request
 
 * Multi-language Support
   - Portuguese and English
@@ -41,7 +41,7 @@ $ npm run dev
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code
+Please read [CONTRIBUTING.md](./docs/CONTRIBUTING.md) for details on our code
 of conduct, and the process for submitting pull requests to us.
 
 ## Credits
