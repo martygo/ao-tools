@@ -1,10 +1,12 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { ClipboardIcon } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { HeadlineTemplate } from "@/components/headline-template";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -14,9 +16,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import { Typography } from "@/components/ui/typography";
-import { ClipboardIcon, Share2Icon } from "lucide-react";
 
 import { PhoneValidator } from "./phone-validator";
 import { getOperatorCodeName } from "./get-operator-name";
@@ -51,19 +50,12 @@ export default function Phone() {
     form.reset();
   }
 
-  return (
-    <div className="max-w-4xl mx-auto p-8">
-      <div className="flex justify-between items-center mb-6">
-        <Typography className="text-4xl font-bold">Validar Telefone</Typography>
-        <Share2Icon className="text-gray-400 w-6 h-6" />
-      </div>
-
-      <Separator className="border-b-2 border-gray-200 mb-4" />
-
-      <Typography className="mb-6">
-        Validar números de telefone. Verifique se o número é válido e obtenha e
-        a operador correspondente.
-      </Typography>
+	return (
+		<div className="max-w-4xl mx-auto p-8">
+			<HeadlineTemplate
+				title="Validar Telefone"
+				description="Validar números de telefone. Verifique se o número é válido e obtenha e a operador correspondente."
+			/>
 
       <Form {...form}>
         <form
