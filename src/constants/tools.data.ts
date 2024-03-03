@@ -89,7 +89,7 @@ export const data: DataProps[] = [
 		description: "Ver a lista de províncias de Angola.",
 		category: category.geografia,
 		link: "/geografia/provincias",
-		status: "pending",
+		status: "completed",
 	},
 	{
 		title: "Munícipios das províncias de Angola 🇦🇴",
@@ -97,6 +97,6 @@ export const data: DataProps[] = [
 			"Ver a lista de munícipios das províncias de Angola.",
 		category: category.geografia,
 		link: "/geografia/municipios",
-		status: "completed",
+		status: "in-progress",
 	},
 ];
