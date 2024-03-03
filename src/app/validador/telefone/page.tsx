@@ -91,10 +91,10 @@ export default function Phone() {
               <ClipboardIcon className="text-gray-400 w-5 h-5 cursor-pointer" />
             </div>
             <div className="flex justify-between items-center">
-              <span>Número é de Angola?: Sim</span>
+              <span>Número é de Angola?: Sim.</span>
             </div>
             <div className="flex justify-between items-center">
-              <span>Código de chamada: .</span>
+              <span>Código de chamada: +244.</span>
             </div>
             <div className="flex justify-between items-center">
               <span>Operadora: {result?.operatorName}.</span>
