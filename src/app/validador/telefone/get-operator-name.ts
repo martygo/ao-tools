@@ -13,15 +13,15 @@ const operatorCodes: OperatorCode = {
   4: { name: "Unitel" },
 };
 
-export function getOperatorCodeName(phoneNumber: string): string {
-  const cleanedNumber = phoneNumber.replace(/\D/g, "");
-
-  const secondDigits = cleanedNumber.slice(1, 2);
-
-  if (cleanedNumber.startsWith("+244")) {
-    const firstDigit = cleanedNumber.slice(5, 6);
-    return operatorCodes[+firstDigit].name;
+function getSecondDigit(phoneNumber: string): string {
+  if (phoneNumber.startsWith("+244")) {
+    return phoneNumber.slice(5, 6);
   } else {
-    return operatorCodes[+secondDigits].name;
+    return phoneNumber.slice(1, 2);
   }
+}
+
+export function getOperatorCodeName(phoneNumber: string): string {
+  const secondDigit = getSecondDigit(phoneNumber);
+  return operatorCodes[+secondDigit].name;
 }

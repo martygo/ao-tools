@@ -1,7 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ClipboardIcon } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -19,6 +18,7 @@ import { Input } from "@/components/ui/input";
 
 import { PhoneValidator } from "./phone-validator";
 import { getOperatorCodeName } from "./get-operator-name";
+import { CopyClipboard } from "@/components/copy-clipboard";
 
 type Result = {
   phoneNumber: string;
@@ -50,12 +50,17 @@ export default function Phone() {
     form.reset();
   }
 
-	return (
-		<div className="max-w-4xl mx-auto p-8">
-			<HeadlineTemplate
-				title="Validar Telefone"
-				description="Validar números de telefone. Verifique se o número é válido e obtenha e a operador correspondente."
-			/>
+  const phoneNumberValidationResult = `Número: ${result?.phoneNumber}.
+    Número é de Angola: Sim  
+    Código de chamada: +244
+    Operadora: ${result?.operatorName}`;
+
+  return (
+    <div className="max-w-4xl mx-auto p-8">
+      <HeadlineTemplate
+        title="Validar Telefone"
+        description="Validar números de telefone. Verifique se o número é válido e obtenha e a operador correspondente."
+      />
 
       <Form {...form}>
         <form
@@ -88,7 +93,7 @@ export default function Phone() {
           <div className="space-y-2">
             <div className="flex justify-between items-center">
               <span>Número: {result?.phoneNumber}.</span>
-              <ClipboardIcon className="text-gray-400 w-5 h-5 cursor-pointer" />
+              <CopyClipboard textToBeCopied={phoneNumberValidationResult} />
             </div>
             <div className="flex justify-between items-center">
               <span>Número é de Angola?: Sim.</span>
