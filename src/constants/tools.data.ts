@@ -35,7 +35,7 @@ export const data: DataProps[] = [
 			"Validar o número de bilhete de identidade nacional.",
 		category: category.validador,
 		link: "/validador/bi",
-		status: "pending",
+		status: "completed",
 	},
 	{
 		title: "Taxas de juros do BNA 🏦",
