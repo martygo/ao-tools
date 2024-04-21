@@ -19,13 +19,11 @@ import {
 	PopoverTrigger,
 } from "@/components/ui/popover";
 
-type MunicipeComboboxProps = {
+type ProvincesFilterProps = {
 	provinces: { value: string; label: string }[];
 };
 
-export function MunicipeCombobox({
-	provinces,
-}: MunicipeComboboxProps) {
+export function ProvincesFilter({ provinces }: ProvincesFilterProps) {
 	const [open, setOpen] = React.useState(false);
 	const [value, setValue] = React.useState("");
 
@@ -59,7 +57,7 @@ export function MunicipeCombobox({
 							<CommandItem
 								key={province.value}
 								value={province.value}
-								onSelect={(currentValue) => {
+								onSelect={(currentValue: any) => {
 									setValue(
 										currentValue === value ? "" : currentValue,
 									);

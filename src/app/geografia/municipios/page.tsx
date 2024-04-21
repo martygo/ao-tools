@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 
 import { HeadlineTemplate } from "@/components/headline-template";
-import { MunicipeCombobox } from "./municipe-combobox";
+import { ProvincesFilter } from "./_components/provinces-filter";
 
 async function getProvinces() {
 	const res = await fetch(
@@ -15,7 +15,7 @@ async function getProvinces() {
 	return res.json();
 }
 
-async function getData(provincia: string = "Luanda") {
+async function getMunicipeByProvince(provincia: string = "Luanda") {
 	const res = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}geography/county?provincia=${provincia}`,
 	);
@@ -23,6 +23,8 @@ async function getData(provincia: string = "Luanda") {
 	if (!res.ok) {
 		throw new Error("Failed to fetch data");
 	}
+
+	console.log(res.json());
 
 	return res.json();
 }
@@ -51,7 +53,7 @@ export default async function Municipes() {
 			/>
 
 			<Suspense fallback={<p>Carregando...</p>}>
-				<MunicipeCombobox provinces={data} />
+				<ProvincesFilter provinces={data} />
 			</Suspense>
 
 			<Suspense fallback={<p>Carregando...</p>}>
