@@ -1,10 +1,9 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
-import { validatePassort } from "@/app/actions";
 
 import { HeadlineTemplate } from "@/components/headline-template";
 import { Button } from "@/components/ui/button";
@@ -18,10 +17,25 @@ import {
 import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
-	numberPassport: z.string().min(8).max(10),
+	numberPassport: z
+		.string()
+		.min(8, {
+			message:
+				"O número do passaporte deve ter no mínimo 8 caracteres.",
+		})
+		.max(10, {
+			message:
+				"O número do passaporte deve ter no máximo 10 caracteres.",
+		}),
 });
 
 export default function Passaport() {
+	const [states, setStates] = useState({
+		loading: false,
+		error: true,
+		data: "",
+	});
+
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -29,12 +43,39 @@ export default function Passaport() {
 		},
 	});
 
+	async function validatePassort(number: string) {
+		setStates({
+			...states,
+			loading: true,
+		});
+
+		try {
+			const res = await fetch(
+				`https://angolaapi-pr-66.onrender.com/api/v1/validate/passport/${number}`,
+			);
+
+			if (res.ok) {
+				setStates({
+					loading: false,
+					error: false,
+					data: "Passaporte válido 👍.",
+				});
+			}
+
+			if (!res.ok) {
+				setStates({
+					loading: false,
+					error: true,
+					data: "Passaporte inválido 👎.",
+				});
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	}
+
 	async function onSubmit(values: z.infer<typeof formSchema>) {
-		const data = await validatePassort();
-
-		console.log(data);
-
-		form.reset();
+		await validatePassort(values.numberPassport.toLowerCase());
 	}
 
 	return (
@@ -66,19 +107,20 @@ export default function Passaport() {
 					/>
 
 					<Button type="submit" disabled={!form.formState.isValid}>
-						Validar
+						{states.loading ? "Aguarde..." : "Validar"}
 					</Button>
 				</form>
 			</Form>
 
-			<div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-md">
-				<div className="space-y-2">
-					<div className="flex items-center">
-						<span>Número de Passaporte inválido 👎</span>
-						<span>Número de Passaporte inválido 👌</span>
+			{states.data && (
+				<div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-md">
+					<div className="space-y-2">
+						<div className="flex items-center">
+							<span>{states.data}</span>
+						</div>
 					</div>
 				</div>
-			</div>
+			)}
 		</div>
 	);
 }

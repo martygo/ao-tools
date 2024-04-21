@@ -27,7 +27,7 @@ export const data: DataProps[] = [
 			"Validar o número de passaporte se é válido e é angolano.",
 		category: category.validador,
 		link: "/validador/passaporte",
-		status: "pending",
+		status: "completed",
 	},
 	{
 		title: "Validar bilhete de identidade 🪪",
