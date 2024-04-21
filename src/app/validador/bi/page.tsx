@@ -17,7 +17,16 @@ import {
 import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
-	numberBi: z.string().min(14).max(14),
+	numberBi: z
+		.string()
+		.min(14, {
+			message:
+				"A quantidade de caracteres deve conter no máximo 14 caracteres",
+		})
+		.max(14, {
+			message:
+				"A quantidade de caracteres deve conter no máximo 14 caracteres",
+		}),
 });
 
 type StatePassportProps = {
@@ -25,11 +34,11 @@ type StatePassportProps = {
 };
 
 export default function Passaport() {
-	const [visible, setVisible] = useState<boolean>(false);
-	const [statePassport, setStatePassport] =
-		useState<StatePassportProps>({
-			affairsProgressState: "",
-		});
+	const [states, setStates] = useState({
+		passaportIsValid: false,
+		visible: false,
+	});
+
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -65,10 +74,23 @@ export default function Passaport() {
 	}
 
 	async function onSubmit(values: z.infer<typeof formSchema>) {
-		const data = await validateBI(values.numberBi);
+		const data: StatePassportProps = await validateBI(
+			values.numberBi,
+		);
 
-		setStatePassport(data);
-		setVisible(true);
+		const { affairsProgressState: state } = data;
+
+		if (state === "WaitForLicensing" || state === "Activate") {
+			setStates({
+				visible: true,
+				passaportIsValid: true,
+			});
+		} else {
+			setStates({
+				visible: true,
+				passaportIsValid: false,
+			});
+		}
 	}
 
 	return (
@@ -105,12 +127,11 @@ export default function Passaport() {
 				</form>
 			</Form>
 
-			{visible && (
+			{states.visible && (
 				<div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-md">
 					<div className="space-y-2">
 						<div className="flex items-center">
-							{statePassport.affairsProgressState ===
-							"WaitForLicensing" ? (
+							{states.passaportIsValid ? (
 								<span>Número do Bilhete de Identidade válido 👌</span>
 							) : (
 								<span>
