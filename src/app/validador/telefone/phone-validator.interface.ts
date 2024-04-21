@@ -1,3 +1,3 @@
 export interface IPhoneValidator {
-	isPhone(value: string): any;
+	isPhone(value: string): boolean | undefined;
 }
