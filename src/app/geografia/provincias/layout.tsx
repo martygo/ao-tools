@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	description:
-		"Informações sobre as províncias e munícipios de Angola.",
-	keywords: "provincias, munícipios, angola, informação, geografia",
+	title: "Provincias",
+	description: "Informações sobre as províncias de Angola.",
 };
 
-export default function GeographyLayout({
+export default function ProvinceLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;

@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Validador",
+	title: "Validar número de telefone",
 	description:
-		"Validar números de telefone, passaporte, bilhete de identidade e outros.",
-	keywords: "validador, telefone, passaporte, bilhete de identidade",
+		"Validar números de telefone. Verifique se o número é válido e obtenha e a operador correspondente.",
 };
 
-export default function ValidateLayout({
+export default function PhoneLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
