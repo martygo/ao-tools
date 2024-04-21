@@ -111,9 +111,11 @@ export default function Passaport() {
 						<div className="flex items-center">
 							{statePassport.affairsProgressState ===
 							"WaitForLicensing" ? (
-								<span>Número de Passaporte válido 👌</span>
+								<span>Número do Bilhete de Identidade válido 👌</span>
 							) : (
-								<span>Número de Passaporte inválido 👎</span>
+								<span>
+									Número de Bilhete de Identidade inválido 👎
+								</span>
 							)}
 						</div>
 					</div>
