@@ -1,15 +1,24 @@
-import { IMunicipeSchemeAPI, MunicipeItem } from "./municipe-item";
+import { Badge } from "@/components/ui/badge";
 
-export const MunicipeList = ({
-	provinces,
+type MunicipeListProps = {
+	id: string;
+	districtName: string;
+};
+
+export function MunicipeList({
+	municipes,
 }: {
-	provinces: IMunicipeSchemeAPI[];
-}) => {
+	municipes: MunicipeListProps[];
+}) {
 	return (
-		<div>
-			{provinces.map((province) => (
-				<MunicipeItem key={province.id} {...province} />
-			))}
+		<div className="flex flex-wrap gap-x-2 gap-y-5 w-[25rem] mt-10 lg:w-[40rem]">
+			{municipes.map((municipes) => {
+				return (
+					<Badge key={municipes.id} variant="secondary">
+						{municipes.districtName}
+					</Badge>
+				);
+			})}
 		</div>
 	);
-};
+}

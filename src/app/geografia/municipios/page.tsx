@@ -1,18 +1,20 @@
+"use client";
+
 import { Suspense } from "react";
+import useSWR from "swr";
+
+import { GOV_API } from "@/constants";
+import { fetcher } from "@/lib/swr/fetcher";
 
 import { HeadlineTemplate } from "@/components/headline-template";
 import { ProvincesFilter } from "./_components/provinces-filter";
 
-import { GeographyRequests, ProvinceRequestType } from "../functions";
+import { MunicipeContext } from "./municipe-context";
 
-export default async function Municipes() {
-	const provinces = await GeographyRequests.getProvinces();
-
-	const provincesData = provinces.map(
-		(province: ProvinceRequestType) => ({
-			value: province.id,
-			label: province.districtName.toLowerCase(),
-		}),
+export default function Municipes() {
+	const { data: provinces } = useSWR(
+		`${GOV_API}district/level/0`,
+		fetcher,
 	);
 
 	return (
@@ -23,10 +25,10 @@ export default async function Municipes() {
 			/>
 
 			<Suspense fallback={<p>Carregando...</p>}>
-				<ProvincesFilter provinces={provincesData} />
+				<MunicipeContext.Provider value={{ provinces }}>
+					<ProvincesFilter />
+				</MunicipeContext.Provider>
 			</Suspense>
-
-			<Suspense fallback={<p>Carregando...</p>}></Suspense>
 		</div>
 	);
 }
