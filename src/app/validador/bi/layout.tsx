@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Validar bilhete de identidade",
+	title: "Validar bilhete de identidade de Angola",
 	description: "Validar bilhete de identidade de Angola.",
 };
 

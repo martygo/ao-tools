@@ -1,12 +1,12 @@
 import { Suspense } from "react";
 
+import { AO_API } from "@/constants";
+
 import { HeadlineTemplate } from "@/components/headline-template";
 import { ProvinceList } from "./province-list";
 
 async function getData() {
-	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}geography/provinces`,
-	);
+	const res = await fetch(`${AO_API}geography/provinces`);
 
 	if (!res.ok) {
 		throw new Error("Failed to fetch data");
