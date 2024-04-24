@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { GOV_API } from "@/constants";
+
 import { HeadlineTemplate } from "@/components/headline-template";
 import { Button } from "@/components/ui/button";
 import {
@@ -48,20 +50,17 @@ export default function Passaport() {
 
 	async function validateBI(number: string) {
 		try {
-			const res = await fetch(
-				`${process.env.NEXT_PUBLIC_API_URL_BI_GOV}progress`,
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({
-						affairsType: "IDCard",
-						affairsReceipt: number,
-						captchaValue: "",
-					}),
+			const res = await fetch(`${GOV_API}progress`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
 				},
-			);
+				body: JSON.stringify({
+					affairsType: "IDCard",
+					affairsReceipt: number,
+					captchaValue: "",
+				}),
+			});
 
 			if (!res.ok) {
 				throw new Error("Failed to fetch data");

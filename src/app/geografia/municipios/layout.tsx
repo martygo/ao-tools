@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Lista das Provincias de Angola",
-	description: "Informações sobre as províncias de Angola.",
+	title: "Lista de Municípios de Angola",
+	description: "Lista de todos os municípios de Angola.",
 };
 
-export default function ProvinceLayout({
+export default function MunicipeLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
