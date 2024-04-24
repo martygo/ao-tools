@@ -8,9 +8,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
 	Command,
-	CommandEmpty,
 	CommandGroup,
-	CommandInput,
 	CommandItem,
 } from "@/components/ui/command";
 import {
@@ -39,19 +37,13 @@ export function ProvincesFilter({ provinces }: ProvincesFilterProps) {
 					{value
 						? provinces.find((province) => province.value === value)
 								?.label
-						: "Pesquisar província..."}
+						: "Escolher província..."}
 					<CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 				</Button>
 			</PopoverTrigger>
 
 			<PopoverContent className="w-[200px] p-0">
 				<Command>
-					<CommandInput
-						placeholder="Pesquisar província..."
-						className="h-9"
-					/>
-					<CommandEmpty>Nenhuma província encontrada.</CommandEmpty>
-
 					<CommandGroup>
 						{provinces.map((province) => (
 							<CommandItem
