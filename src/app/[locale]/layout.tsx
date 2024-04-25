@@ -7,19 +7,20 @@ import { AppBar } from "@/components/app-bar";
 import { Footer } from "@/components/footer";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 
-import "./../styles/globals.css";
-
+export const metadata: Metadata = seo;
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = seo;
+import "./../../styles/globals.css";
 
 export default function RootLayout({
 	children,
+	params,
 }: Readonly<{
 	children: React.ReactNode;
+	params: { locale: string };
 }>) {
 	return (
-		<html lang="en">
+		<html lang={params.locale}>
 			<body className={`${inter.className}`}>
 				<ThemeProvider
 					attribute="class"

@@ -1,0 +1,14 @@
+{
+	"Home": {
+		"description": "Todas ferramentas"
+	},
+	"Theme": {
+		"light": "Branco",
+		"dark": "Preto"
+	},
+	"NotFound": {
+		"title": "404 - Página nāo encontrada",
+		"description": "Desculpa, essa página está sendo construída ou foi removida.",
+		"button": "Voltar"
+	}
+}

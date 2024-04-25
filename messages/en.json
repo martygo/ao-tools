@@ -1,0 +1,14 @@
+{
+	"Home": {
+		"description": "All tools"
+	},
+	"Theme": {
+		"light": "Light",
+		"dark": "Dark"
+	},
+	"NotFound": {
+		"title": "404 - Page Not Found",
+		"description": "Sorry, this page is under construction or has been removed.",
+		"button": "Back"
+	}
+}

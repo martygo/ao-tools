@@ -2,10 +2,10 @@ import {
 	Select,
 	SelectContent,
 	SelectGroup,
-	SelectItem,
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import Link from "next/link";
 
 export const SelectLanguage = () => {
 	const languages = [
@@ -25,9 +25,14 @@ export const SelectLanguage = () => {
 				<SelectGroup>
 					{languages.map((language) => {
 						return (
-							<SelectItem key={language.value} value={language.value}>
-								{language.label}
-							</SelectItem>
+							<div key={language.value} className="flex flex-col p-1">
+								<Link
+									href={`/${language.value}`}
+									locale={language.value}
+								>
+									{language.label}
+								</Link>
+							</div>
 						);
 					})}
 				</SelectGroup>
